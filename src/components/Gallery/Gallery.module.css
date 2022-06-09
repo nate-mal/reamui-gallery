@@ -1,0 +1,19 @@
+.gallery {
+    /* min-height: 80vh;
+    max-width: 80vw; */
+    position: relative;
+    display: flex;
+    flex-direction:  column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pagination {
+    position:absolute;
+    bottom: 0;
+}

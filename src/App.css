@@ -1,10 +1,12 @@
-.App {
-  height: fit-content;
+
+/* .App {
+  min-height: 80vh;
   padding: 3rem;
   text-align: center;
+  
 
-}
-
+} */
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -38,4 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

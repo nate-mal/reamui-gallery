@@ -4,19 +4,20 @@ import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import classes from "./GalleryItem.module.css";
-const GalleryItem = ({item_data}) => {
+
+const GalleryItem = ({ item_data }) => {
   return (
-    <Card className={classes.card} sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           alt={item_data.title}
-          height="150"
+          width="200"
+          heigth="auto"
           image={item_data.url.desktop}
         />
-        <CardContent className={classes["card-content"]}>
-          <Typography align="center"  gutterBottom variant="h5" component="div">
+        <CardContent>
+          <Typography align="center" gutterBottom variant="h5" component="div">
             {item_data.title}
           </Typography>
         </CardContent>
