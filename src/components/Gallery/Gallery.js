@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import GalleryItem from "./GalleryItem";
 import { projects_data } from "../../projects-data";
-import { Grid } from "@mui/material";
+import { Fade, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { Slide } from "@mui/material";
 import PaginationControlled from "../PaginationControlled";
 import classes from "./Gallery.module.css";
 const Gallery = () => {
   const [page, setPage] = React.useState(1);
-  const [animation, setAnimation] = useState({ on: true, direction: "right" });
+  const [animation, setAnimation] = useState({ on: true, direction: "down" });
   const [isMobile, setIsMobile] = useState(false);
   let count;
   if (window.innerWidth < 587) count = 3;
@@ -33,32 +33,18 @@ const Gallery = () => {
   const last = first + count;
   const setPageHandler = (pageNum) => {
     if (pageNum !== page) {
-      setPage(pageNum);
-      setAnimation((prev) => {
-        let direction = "left";
-        if (prev.direction === direction) {
-          direction = "right";
-        }
-        return { on: false, direction: "left" };
-      });
-    } else {
-    }
-  };
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimation((prev) => {
-        let direction = "left";
-        if (prev.direction === direction) {
-          direction = "right";
-        }
-        return { on: true, direction: "right" };
-      });
-    }, 200);
-  }, [animation.on]);
-
+      setAnimation( { on: false, direction: "down" });
+      setTimeout(() => {
+        setPage(pageNum);
+        setAnimation({ on: true, direction: "down" });
+      }, 1500);
+    } 
+  }
+  
   return (
     <Box className={classes.gallery} sx={{ flexGrow: 1 }}>
-      <Slide
+      <Fade
+        timeout={2000}
         direction={animation.direction}
         in={animation.on}
         mountOnEnter
@@ -77,7 +63,7 @@ const Gallery = () => {
             );
           })}
         </Grid>
-      </Slide>
+      </Fade>
       <PaginationControlled
         className={classes.pagination}
         count={Math.ceil(projects_data.length / count)}
@@ -87,5 +73,6 @@ const Gallery = () => {
     </Box>
   );
 };
+
 
 export default Gallery;
