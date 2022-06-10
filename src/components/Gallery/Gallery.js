@@ -52,12 +52,12 @@ const Gallery = () => {
       >
         <Grid
           container
-          spacing={{ xs: 1, md: 3 }}
+          spacing={{ xs: 1, md: 2 }}
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
           {projects_data.slice(first, last).map((item_data) => {
             return (
-              <Grid item xs={2} sm={4} md={4} key={item_data.id}>
+              <Grid className={classes.box} item xs={2} sm={4} md={4} key={item_data.id}>
                 <GalleryItem item_data={item_data} />
               </Grid>
             );
